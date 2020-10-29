@@ -6,7 +6,6 @@ graph TD;
         navigation_kakao_sync-->navigation_user_general_sign_up;
         navigation_user_general_sign_up-->navigation_terms;
         navigation_user_general_sign_up-->navigation_main;
-
     subgraph main
         navigation_main-->navigation_buildings;
         navigation_main-->navigation_trade;
@@ -15,18 +14,15 @@ graph TD;
         navigation_main-->navigation_settings;
         navigation_main-->navigation_user_investor_intro;
         navigation_main-->navigation_user_investor_info;
-
     subgraph investor
         navigation_main-->navigation_user_investor_bank_hana;
         navigation_main-->navigation_user_investor_bank;
         navigation_main-->navigation_user_investor_info;
-
     subgraph buildings
         navigation_buildings-->navigation_subscription;
         navigation_buildings-->navigation_disclosure;
         navigation_buildings-->navigation_public_offering_info;
         navigation_buildings-->navigation_invest_document;
-    
     subgraph trade
         navigation_trade-->navigation_public_offering_info
         navigation_trade-->navigation_buildings
