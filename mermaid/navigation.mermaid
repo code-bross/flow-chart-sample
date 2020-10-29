@@ -11,12 +11,12 @@ flowchart TB
         navigation_main-->navigation_dabs_account;
         navigation_main-->navigation_settings;
         navigation_main-->navigation_notification;
-        navigation_main-->navigation_public_offering_info;
+        navigation_main-->navigation_user_investor_info;
     end
     subgraph investor
-        navigation_main-->navigation_user_investor_bank_hana;
-        navigation_main-->navigation_user_investor_bank;
-        navigation_main-->navigation_user_investor_info;
+        navigation_user_investor_info-->navigation_user_investor_info;
+        navigation_user_investor_info-->navigation_user_investor_bank;
+        navigation_user_investor_bank-->navigation_user_investor_bank_hana;
     end
     subgraph buildings
         navigation_buildings-->navigation_subscription;
@@ -25,9 +25,9 @@ flowchart TB
         navigation_buildings-->navigation_invest_document;
     end
     subgraph trade
-        navigation_trade-->navigation_public_offering_info
-        navigation_trade-->navigation_buildings
-        navigation_trade-->navigation_invest_document
+        navigation_trade-->navigation_public_offering_info;
+        navigation_trade-->navigation_buildings;
+        navigation_trade-->navigation_invest_document;
     end
     intro --> main;
     main --> investor;
