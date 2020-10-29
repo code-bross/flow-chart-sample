@@ -12,9 +12,9 @@ flowchart TB
         navigation_main-->navigation_settings;
         navigation_main-->navigation_notification;
         navigation_main-->navigation_user_investor_info;
+        navigation_main-->navigation_user_investor_intro;
     end
     subgraph investor
-        navigation_main-->navigation_user_investor_intro;
         navigation_user_investor_intro-->navigation_user_investor_info;
         navigation_user_investor_info-->navigation_user_investor_bank;
         navigation_user_investor_bank-->navigation_user_investor_bank_hana;
