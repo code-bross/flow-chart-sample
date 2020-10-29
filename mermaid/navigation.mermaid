@@ -1,15 +1,18 @@
 graph TD;
-    navigation_intro-->navigation_kakao_sync;
-    navigation_intro-->navigation_user_general_sign_up;
-    navigation_kakao_sync-->navigation_terms;
-    navigation_kakao_sync-->navigation_user_general_sign_up;
-    navigation_user_general_sign_up-->navigation_terms;
-    navigation_user_general_sign_up-->navigation_main;
-    navigation_main-->navigation_buildings;
-    navigation_main-->navigation_deposits;
-    navigation_main-->navigation_dabs_account;
-    navigation_main-->navigation_settings;
-    navigation_buildings-->navigation_subscription;
-    navigation_buildings-->navigation_disclosure;
-    navigation_buildings-->navigation_public_offering_info;
-    navigation_buildings-->navigation_invest_document;
+    subgraph intro
+        A[navigation_intro] --> B{use kakao?};
+        B -- Yes --> C[navigation_kakao_sync];
+        B -- No --> C[navigation_user_general_sign_up];
+        navigation_kakao_sync-->navigation_terms && navigation_kakao_sync-->navigation_user_general_sign_up;
+        navigation_user_general_sign_up-->navigation_terms && navigation_user_general_sign_up-->navigation_main;
+    subgraph main
+        navigation_main-->navigation_buildings;
+        navigation_main-->navigation_deposits;
+        navigation_main-->navigation_dabs_account;
+        navigation_main-->navigation_settings;
+    subgraph buildings
+        navigation_buildings-->navigation_subscription;
+        navigation_buildings-->navigation_disclosure;
+        navigation_buildings-->navigation_public_offering_info;
+        navigation_buildings-->navigation_invest_document;
+    
