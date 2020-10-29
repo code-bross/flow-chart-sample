@@ -1,15 +1,35 @@
-graph TD;
-    navigation_intro-->navigation_kakao_sync;
-    navigation_intro-->navigation_user_general_sign_up;
-    navigation_kakao_sync-->navigation_terms;
-    navigation_kakao_sync-->navigation_user_general_sign_up;
-    navigation_user_general_sign_up-->navigation_terms;
-    navigation_user_general_sign_up-->navigation_main;
-    navigation_main-->navigation_buildings;
-    navigation_main-->navigation_deposits;
-    navigation_main-->navigation_dabs_account;
-    navigation_main-->navigation_settings;
-    navigation_buildings-->navigation_subscription;
-    navigation_buildings-->navigation_disclosure;
-    navigation_buildings-->navigation_public_offering_info;
-    navigation_buildings-->navigation_invest_document;
+flowchart TB
+    subgraph intro
+        navigation_intro-->navigation_kakao_sync;
+        navigation_intro-->navigation_user_general_sign_up;
+        navigation_kakao_sync-->navigation_terms;
+        navigation_kakao_sync-->navigation_user_general_sign_up;
+        navigation_user_general_sign_up-->navigation_terms;
+    end
+    subgraph main
+        navigation_main-->navigation_deposits;
+        navigation_main-->navigation_dabs_account;
+        navigation_main-->navigation_settings;
+        navigation_main-->navigation_notification;
+        navigation_main-->navigation_user_investor_info;
+    end
+    subgraph investor
+        navigation_user_investor_info-->navigation_user_investor_info;
+        navigation_user_investor_info-->navigation_user_investor_bank;
+        navigation_user_investor_bank-->navigation_user_investor_bank_hana;
+    end
+    subgraph buildings
+        navigation_buildings-->navigation_subscription;
+        navigation_buildings-->navigation_disclosure;
+        navigation_buildings-->navigation_public_offering_info;
+        navigation_buildings-->navigation_invest_document;
+    end
+    subgraph trade
+        navigation_trade-->navigation_public_offering_info;
+        navigation_trade-->navigation_buildings;
+        navigation_trade-->navigation_invest_document;
+    end
+    intro --> main;
+    main --> investor;
+    main --> buildings;
+    main --> trade;
