@@ -11,10 +11,10 @@ flowchart TB
         navigation_main-->navigation_dabs_account;
         navigation_main-->navigation_settings;
         navigation_main-->navigation_notification;
-        navigation_main-->navigation_user_investor_info;
     end
     subgraph investor
-        navigation_user_investor_intro-->navigation_user_investor_info && navigation_user_investor_info-->navigation_user_investor_bank;
+        navigation_user_investor_intro-->navigation_user_investor_info;
+        navigation_user_investor_info-->navigation_user_investor_bank;
         navigation_user_investor_bank-->navigation_user_investor_bank_hana;
     end
     subgraph buildings
